@@ -14,3 +14,8 @@ build/
 coverage.xml
 htmlcov/
 *.log
+reports/validation/
+validation_report_step1_step2.md
+validation_report_step3_to_step7.md
+step5_hardening_report.md
+step5_final_validation_report.md
