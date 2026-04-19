@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "growthlab"
+version = "0.1.0"
+description = "Enterprise experimentation platform for config-driven analysis and policy evaluation."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "duckdb",
+  "pydantic>=2.0",
+  "pyyaml",
+  "pandas",
+  "numpy",
+  "scipy",
+  "streamlit",
+  "fastapi",
+  "plotly",
+  "pyarrow",
+  "pytest",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

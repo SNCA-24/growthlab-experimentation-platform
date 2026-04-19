@@ -1,0 +1,9 @@
+{
+  "analysis_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_srm_invalid/analysis_summary.json",
+  "decision_summary_path": "/Users/chaitu/Downloads/growthlab/reports/decision/scenario_srm_invalid/decision_summary.json",
+  "scenario_id": "scenario_srm_invalid",
+  "scenario_name": "Invalid SRM Scenario",
+  "scenario_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_srm_invalid/scenario_srm_invalid.yaml",
+  "trust_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_srm_invalid/trust_summary.json",
+  "validation_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_srm_invalid/validation_summary.json"
+}

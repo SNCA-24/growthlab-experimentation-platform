@@ -1,0 +1,3 @@
+allowed_degradation_threshold,ci_lower,ci_upper,direction,effect,metric_name,state
+0.0043,-0.005662214780896524,0.00035135631018675274,lower_is_better,-0.0026554292353548857,uninstall_rate,pass
+0.016,-0.002343108120287,0.004972936261267554,lower_is_better,0.0013149140704902772,support_ticket_rate,pass

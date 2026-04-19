@@ -1,0 +1,62 @@
+experiment_id: exp_onboarding_v1
+experiment_name: New Onboarding Flow
+experiment_type: onboarding
+owner: growthlab
+description: Tests a new onboarding experience for early-tenure users.
+
+assignment_start_ts_utc: 2026-02-01T00:00:00Z
+assignment_end_ts_utc: 2026-02-15T00:00:00Z
+observation_end_ts_utc: 2026-03-17T00:00:00Z
+
+analysis_mode: fixed_horizon
+primary_estimand: itt_opportunity
+randomization_unit: user
+
+variants:
+  - name: control
+    weight: 0.50
+    is_control: true
+  - name: treatment_a
+    weight: 0.50
+    is_control: false
+
+target_population_filters:
+  - column: country
+    op: in
+    values: [US, CA]
+  - column: plan_tier
+    op: in
+    values: [free, trial]
+  - column: tenure_days_at_experiment_start
+    op: <
+    value: 30
+
+primary_metric: conversion_7d
+secondary_metrics:
+  - retention_7d
+  - revenue_30d
+guardrail_metrics:
+  - uninstall_rate
+  - support_ticket_rate
+diagnostic_metrics:
+  - exposure_rate
+  - opportunity_rate
+
+decision_policy_id: growth_default_v1
+
+pre_registered_groupby_columns:
+  - platform
+  - plan_tier
+
+pre_registered_filters:
+  - column: country
+    op: in
+    values: [US, CA]
+
+tags:
+  - onboarding
+  - growth
+notes: >
+  This experiment targets early-tenure users and supports segment-level rollout
+  only for pre-registered dimensions.
+

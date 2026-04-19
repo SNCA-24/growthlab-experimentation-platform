@@ -1,0 +1,9 @@
+{
+  "analysis_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_guardrail_harm/analysis_summary.json",
+  "decision_summary_path": "/Users/chaitu/Downloads/growthlab/reports/decision/scenario_guardrail_harm/decision_summary.json",
+  "scenario_id": "scenario_guardrail_harm",
+  "scenario_name": "Primary Win, Guardrail Harm",
+  "scenario_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_guardrail_harm/scenario_guardrail_harm.yaml",
+  "trust_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_guardrail_harm/trust_summary.json",
+  "validation_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_guardrail_harm/validation_summary.json"
+}

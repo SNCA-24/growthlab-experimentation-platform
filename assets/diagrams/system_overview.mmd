@@ -1,0 +1,12 @@
+flowchart LR
+    A["YAML config layer"] --> B["Simulator"]
+    B --> C["Canonical parquet tables"]
+    C --> D["Analysis engine"]
+    D --> E["Trust layer"]
+    E --> F["Validation harness"]
+    D --> G["Decision engine"]
+    E --> G
+    G --> H["Reporting artifacts"]
+    H --> I["Streamlit UI"]
+    H --> J["Demo bundle"]
+

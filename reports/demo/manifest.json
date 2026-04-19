@@ -1,0 +1,49 @@
+{
+  "scenarios": [
+    {
+      "analysis_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_aa_null/analysis_summary.json",
+      "decision_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_aa_null/decision_summary.json",
+      "scenario_id": "scenario_aa_null",
+      "scenario_name": "scenario_aa_null",
+      "scenario_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_aa_null/scenario_aa_null.yaml",
+      "trust_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_aa_null/trust_summary.json",
+      "validation_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_aa_null/validation_summary.json"
+    },
+    {
+      "analysis_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_global_positive/analysis_summary.json",
+      "decision_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_global_positive/decision_summary.json",
+      "scenario_id": "scenario_global_positive",
+      "scenario_name": "scenario_global_positive",
+      "scenario_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_global_positive/scenario_global_positive.yaml",
+      "trust_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_global_positive/trust_summary.json",
+      "validation_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_global_positive/validation_summary.json"
+    },
+    {
+      "analysis_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_guardrail_harm/analysis_summary.json",
+      "decision_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_guardrail_harm/decision_summary.json",
+      "scenario_id": "scenario_guardrail_harm",
+      "scenario_name": "scenario_guardrail_harm",
+      "scenario_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_guardrail_harm/scenario_guardrail_harm.yaml",
+      "trust_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_guardrail_harm/trust_summary.json",
+      "validation_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_guardrail_harm/validation_summary.json"
+    },
+    {
+      "analysis_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_segment_only_win/analysis_summary.json",
+      "decision_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_segment_only_win/decision_summary.json",
+      "scenario_id": "scenario_segment_only_win",
+      "scenario_name": "scenario_segment_only_win",
+      "scenario_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_segment_only_win/scenario_segment_only_win.yaml",
+      "trust_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_segment_only_win/trust_summary.json",
+      "validation_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_segment_only_win/validation_summary.json"
+    },
+    {
+      "analysis_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_srm_invalid/analysis_summary.json",
+      "decision_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_srm_invalid/decision_summary.json",
+      "scenario_id": "scenario_srm_invalid",
+      "scenario_name": "scenario_srm_invalid",
+      "scenario_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_srm_invalid/scenario_srm_invalid.yaml",
+      "trust_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_srm_invalid/trust_summary.json",
+      "validation_summary_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_srm_invalid/validation_summary.json"
+    }
+  ]
+}

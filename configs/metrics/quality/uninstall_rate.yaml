@@ -1,0 +1,21 @@
+metric_name: uninstall_rate
+metric_label: 7-Day Uninstall Rate
+description: Share of users uninstalling within 7 days
+metric_type: binary
+source_table: fact_user_outcomes
+aggregation_unit: user
+window_days: 7
+maturity_window_days: 7
+direction: lower_is_better
+metric_column: uninstalls_7d
+covariate_column: historical_retention_score
+practical_significance_threshold: 0.001
+practical_significance_threshold_type: absolute
+allowed_degradation_threshold: 0.0043
+allowed_degradation_threshold_type: absolute
+null_fill_strategy: zero
+winsorization: null
+outlier_handling: none
+segment_eligible: true
+policy_weight: 1.0
+owner: growthlab

@@ -1,0 +1,8 @@
+metric_role,metric_name,metric_label,metric_type,direction,status,effect,ci_lower,ci_upper,p_value,practical_threshold_met,cuped_enabled
+primary,conversion_7d,7-Day Conversion,binary,higher_is_better,final,0.005132824290447469,0.00019794361285451444,0.010067704968040424,0.0414929474073491,True,True
+secondary,retention_7d,7-Day Retention,binary,higher_is_better,final,0.005913290932024945,-0.005849112213228931,0.01767569407727882,0.3244415630119486,False,True
+secondary,revenue_30d,30-Day Revenue,continuous,higher_is_better,final,0.08459096955045609,0.011676690156940103,0.15750524894397205,0.022978529815493642,False,True
+guardrail,uninstall_rate,7-Day Uninstall Rate,binary,lower_is_better,final,-0.0017953512837528864,-0.004949579636532923,0.0013588770690271504,0.2645802850925074,True,True
+guardrail,support_ticket_rate,7-Day Support Ticket Rate,binary,lower_is_better,final,-0.00042844248621677974,-0.004086016014549731,0.0032291310421161718,0.8184025864535718,False,True
+diagnostic,exposure_rate,Exposure Rate,binary,higher_is_better,final,0.0016545842430633062,-0.0030832697720415206,0.006392438258168133,0.49365620257786347,False,True
+diagnostic,opportunity_rate,Opportunity Rate,binary,higher_is_better,final,0.0,0.0,0.0,1.0,False,True

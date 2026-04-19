@@ -1,0 +1,9 @@
+{
+  "analysis_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_global_positive/analysis_summary.json",
+  "decision_summary_path": "/Users/chaitu/Downloads/growthlab/reports/decision/scenario_global_positive/decision_summary.json",
+  "scenario_id": "scenario_global_positive",
+  "scenario_name": "Global Positive Effect",
+  "scenario_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_global_positive/scenario_global_positive.yaml",
+  "trust_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_global_positive/trust_summary.json",
+  "validation_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_global_positive/validation_summary.json"
+}

@@ -1,0 +1,20 @@
+metric_name: retention_7d
+metric_label: 7-Day Retention
+description: Whether the user was retained at day 7
+metric_type: binary
+source_table: fact_user_outcomes
+aggregation_unit: user
+window_days: 7
+maturity_window_days: 7
+direction: higher_is_better
+metric_column: retention_7d
+covariate_column: historical_retention_score
+practical_significance_threshold: 0.01
+practical_significance_threshold_type: absolute
+null_fill_strategy: zero
+winsorization: null
+outlier_handling: none
+segment_eligible: true
+policy_weight: 0.8
+owner: growthlab
+

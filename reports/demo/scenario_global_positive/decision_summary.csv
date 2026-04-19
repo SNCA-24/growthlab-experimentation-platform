@@ -1,0 +1,2 @@
+final_action,decided_stage,trust_state,scenario_id,experiment_id,policy_id
+SHIP_GLOBAL,business_value_policy,pass,scenario_global_positive,exp_onboarding_v1,growth_default_v1

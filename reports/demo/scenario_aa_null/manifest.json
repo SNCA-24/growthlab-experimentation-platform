@@ -1,0 +1,9 @@
+{
+  "analysis_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_aa_null/analysis_summary.json",
+  "decision_summary_path": "/Users/chaitu/Downloads/growthlab/reports/decision/scenario_aa_null/decision_summary.json",
+  "scenario_id": "scenario_aa_null",
+  "scenario_name": "A/A Null Test",
+  "scenario_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_aa_null/scenario_aa_null.yaml",
+  "trust_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_aa_null/trust_summary.json",
+  "validation_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_aa_null/validation_summary.json"
+}

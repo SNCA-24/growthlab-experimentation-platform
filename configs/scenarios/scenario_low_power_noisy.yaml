@@ -1,0 +1,161 @@
+schema_version: v0.1
+scenario_id: scenario_low_power_noisy
+scenario_name: Low Power / Noisy Experiment
+scenario_type: low_power_noisy
+description: >
+  Underpowered, noisy scenario used to validate that the trust and decision layers
+  do not overreact to weak evidence. The expected outcome is a rerun/underpowered
+  style decision rather than ship.
+
+random_seed: 47
+
+experiment:
+  experiment_id: exp_sim_low_power_noisy_v1
+  experiment_name: Synthetic Low Power Noisy Scenario
+  experiment_type: onboarding
+  owner: growthlab
+  assignment_start_ts_utc: "2026-02-01T00:00:00Z"
+  assignment_end_ts_utc: "2026-02-08T00:00:00Z"
+  observation_end_ts_utc: "2026-03-10T00:00:00Z"
+  analysis_mode: fixed_horizon
+  primary_estimand: itt_opportunity
+  randomization_unit: user
+  variants:
+    - name: control
+      weight: 0.50
+      is_control: true
+    - name: treatment_a
+      weight: 0.50
+      is_control: false
+  target_population_filters:
+    - column: country
+      op: in
+      values: ["US", "CA"]
+    - column: plan_tier
+      op: in
+      values: ["free", "trial"]
+    - column: tenure_days_at_experiment_start
+      op: <
+      value: 30
+  primary_metric: conversion_7d
+  secondary_metrics:
+    - retention_7d
+    - revenue_30d
+  guardrail_metrics:
+    - uninstall_rate
+    - support_ticket_rate
+  diagnostic_metrics:
+    - exposure_rate
+    - opportunity_rate
+  decision_policy_id: growth_default_v1
+  pre_registered_groupby_columns:
+    - platform
+    - plan_tier
+  pre_registered_filters:
+    - column: country
+      op: in
+      values: ["US", "CA"]
+
+population:
+  n_users: 9000
+  country_distribution:
+    US: 0.75
+    CA: 0.25
+  platform_distribution:
+    ios: 0.35
+    android: 0.35
+    web: 0.30
+  acquisition_channel_distribution:
+    organic: 0.45
+    paid_search: 0.20
+    paid_social: 0.15
+    referral: 0.10
+    direct: 0.10
+  plan_tier_distribution:
+    free: 0.70
+    trial: 0.30
+  tenure_days_distribution:
+    type: truncated_exponential
+    max_days: 30
+
+baseline_behavior:
+  historical_sessions_28d:
+    distribution: lognormal
+    mean: 8.4
+    sigma: 0.78
+  historical_revenue_28d:
+    distribution: zero_inflated_lognormal
+    zero_rate: 0.83
+    mean: 2.2
+    sigma: 1.18
+  historical_conversion_flag:
+    bernoulli_p: 0.08
+  historical_retention_score:
+    distribution: beta
+    alpha: 2.2
+    beta: 3.9
+
+opportunity_and_delivery:
+  trigger_probability: 0.35
+  delivery_probability_control: 0.96
+  delivery_probability_treatment: 0.96
+  exposure_surface: onboarding_flow
+
+metric_generation:
+  conversion_7d:
+    baseline_rate: 0.028
+    treatment_effect_absolute: 0.0018
+  retention_7d:
+    baseline_rate: 0.23
+    treatment_effect_absolute: 0.001
+  retention_30d:
+    baseline_rate: 0.11
+    treatment_effect_absolute: 0.0004
+  revenue_30d:
+    baseline_mean: 1.75
+    baseline_std: 8.2
+    treatment_effect_relative: 0.01
+    winsorize_reference: p99
+  engagement_7d:
+    baseline_mean: 38.0
+    baseline_std: 20.0
+    treatment_effect_relative: 0.01
+  uninstall_rate:
+    baseline_rate: 0.012
+    treatment_effect_absolute: 0.0001
+  support_ticket_rate:
+    baseline_rate: 0.018
+    treatment_effect_absolute: 0.0001
+
+segment_effect_overrides: {}
+
+data_quality_and_noise:
+  missingness_rate: 0.01
+  duplicate_user_rate: 0.0
+  event_underlogging_rate: 0.01
+  outlier_revenue_rate: 0.004
+  outlier_revenue_multiplier: 18.0
+
+pathology_flags:
+  inject_srm: false
+  inject_treatment_leakage: false
+  inject_exposure_asymmetry: false
+  inject_peeking_checkpoints: true
+
+validation_truth:
+  primary_metric_name: conversion_7d
+  true_primary_effect_value: 0.0018
+  true_primary_effect_scale: absolute_delta
+  primary_metric_direction: higher_is_better
+  true_effect_by_segment_json:
+    platform:
+      ios: 0.0018
+      android: 0.0018
+      web: 0.0018
+  true_guardrail_impact_json:
+    uninstall_rate: 0.0001
+    support_ticket_rate: 0.0001
+  expected_srm_flag: 0
+  expected_missing_exposure_pattern: mild_noise
+  expected_peeking_risk: medium
+  expected_recommendation: RERUN_UNDERPOWERED

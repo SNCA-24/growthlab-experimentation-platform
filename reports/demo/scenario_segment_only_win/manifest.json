@@ -1,0 +1,9 @@
+{
+  "analysis_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_segment_only_win/analysis_summary.json",
+  "decision_summary_path": "/Users/chaitu/Downloads/growthlab/reports/decision/scenario_segment_only_win/decision_summary.json",
+  "scenario_id": "scenario_segment_only_win",
+  "scenario_name": "Pre-Registered Segment-Only Win",
+  "scenario_path": "/Users/chaitu/Downloads/growthlab/reports/demo/scenario_segment_only_win/scenario_segment_only_win.yaml",
+  "trust_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_segment_only_win/trust_summary.json",
+  "validation_summary_path": "/Users/chaitu/Downloads/growthlab/reports/validation/full_pack/scenario_segment_only_win/validation_summary.json"
+}

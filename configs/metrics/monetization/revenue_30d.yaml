@@ -1,0 +1,20 @@
+metric_name: revenue_30d
+metric_label: 30-Day Revenue
+description: Revenue per user within 30 days of first opportunity
+metric_type: continuous
+source_table: fact_user_outcomes
+aggregation_unit: user
+window_days: 30
+maturity_window_days: 30
+direction: higher_is_better
+metric_column: revenue_30d
+covariate_column: historical_revenue_28d
+practical_significance_threshold: 0.05
+practical_significance_threshold_type: relative
+null_fill_strategy: zero
+winsorization: p99
+outlier_handling: winsorize_p99
+segment_eligible: true
+policy_weight: 1.0
+owner: growthlab
+

@@ -1,0 +1,176 @@
+schema_version: v0.1
+scenario_id: scenario_segment_only_win
+scenario_name: Pre-Registered Segment-Only Win
+scenario_type: segment_only_win
+description: >
+  Scenario where the global effect is weak or inconclusive, but one
+  pre-registered segment has a real positive effect and passes corrected
+  segment-level rollout checks. Used to validate targeted rollout logic.
+
+random_seed: 45
+
+experiment:
+  experiment_id: exp_sim_segment_only_win_v1
+  experiment_name: Synthetic Segment-Only Win Scenario
+  experiment_type: onboarding
+  owner: growthlab
+  assignment_start_ts_utc: "2026-02-01T00:00:00Z"
+  assignment_end_ts_utc: "2026-02-15T00:00:00Z"
+  observation_end_ts_utc: "2026-03-17T00:00:00Z"
+  analysis_mode: fixed_horizon
+  primary_estimand: itt_opportunity
+  randomization_unit: user
+  variants:
+    - name: control
+      weight: 0.50
+      is_control: true
+    - name: treatment_a
+      weight: 0.50
+      is_control: false
+  target_population_filters:
+    - column: country
+      op: in
+      values: ["US", "CA"]
+    - column: plan_tier
+      op: in
+      values: ["free", "trial"]
+    - column: tenure_days_at_experiment_start
+      op: <
+      value: 30
+  primary_metric: conversion_7d
+  secondary_metrics:
+    - retention_7d
+    - revenue_30d
+  guardrail_metrics:
+    - uninstall_rate
+    - support_ticket_rate
+  diagnostic_metrics:
+    - exposure_rate
+    - opportunity_rate
+  decision_policy_id: growth_default_v1
+  pre_registered_groupby_columns:
+    - platform
+    - plan_tier
+  pre_registered_filters:
+    - column: country
+      op: in
+      values: ["US", "CA"]
+
+population:
+  n_users: 180000
+  country_distribution:
+    US: 0.75
+    CA: 0.25
+  platform_distribution:
+    ios: 0.35
+    android: 0.35
+    web: 0.30
+  acquisition_channel_distribution:
+    organic: 0.45
+    paid_search: 0.20
+    paid_social: 0.15
+    referral: 0.10
+    direct: 0.10
+  plan_tier_distribution:
+    free: 0.70
+    trial: 0.30
+  tenure_days_distribution:
+    type: truncated_exponential
+    max_days: 30
+
+baseline_behavior:
+  historical_sessions_28d:
+    distribution: lognormal
+    mean: 8.7
+    sigma: 0.72
+  historical_revenue_28d:
+    distribution: zero_inflated_lognormal
+    zero_rate: 0.82
+    mean: 2.5
+    sigma: 1.05
+  historical_conversion_flag:
+    bernoulli_p: 0.08
+  historical_retention_score:
+    distribution: beta
+    alpha: 2.3
+    beta: 3.7
+
+opportunity_and_delivery:
+  trigger_probability: 0.42
+  delivery_probability_control: 0.97
+  delivery_probability_treatment: 0.97
+  exposure_surface: onboarding_flow
+
+metric_generation:
+  conversion_7d:
+    baseline_rate: 0.028
+    treatment_effect_absolute: 0.0001
+  retention_7d:
+    baseline_rate: 0.23
+    treatment_effect_absolute: 0.0015
+  retention_30d:
+    baseline_rate: 0.11
+    treatment_effect_absolute: 0.0005
+  revenue_30d:
+    baseline_mean: 1.85
+    baseline_std: 7.4
+    treatment_effect_relative: 0.015
+    winsorize_reference: p99
+  engagement_7d:
+    baseline_mean: 38.0
+    baseline_std: 17.0
+    treatment_effect_relative: 0.02
+  uninstall_rate:
+    baseline_rate: 0.012
+    treatment_effect_absolute: 0.0001
+  support_ticket_rate:
+    baseline_rate: 0.018
+    treatment_effect_absolute: 0.0000
+
+segment_effect_overrides:
+  platform:
+    ios:
+      conversion_7d:
+        treatment_effect_absolute: 0.0080
+      retention_7d:
+        treatment_effect_absolute: 0.0040
+    android:
+      conversion_7d:
+        treatment_effect_absolute: -0.0015
+    web:
+      conversion_7d:
+        treatment_effect_absolute: -0.0005
+
+data_quality_and_noise:
+  missingness_rate: 0.003
+  duplicate_user_rate: 0.0
+  event_underlogging_rate: 0.0
+  outlier_revenue_rate: 0.002
+  outlier_revenue_multiplier: 12.0
+
+pathology_flags:
+  inject_srm: false
+  inject_treatment_leakage: false
+  inject_exposure_asymmetry: false
+  inject_peeking_checkpoints: true
+
+validation_truth:
+  primary_metric_name: conversion_7d
+  true_primary_effect_value: 0.0001
+  true_primary_effect_scale: absolute_delta
+  primary_metric_direction: higher_is_better
+  true_effect_by_segment_json:
+    platform:
+      ios: 0.0080
+      android: -0.0015
+      web: -0.0005
+    plan_tier:
+      free: 0.0012
+      trial: 0.0006
+  true_guardrail_impact_json:
+    uninstall_rate: 0.0001
+    support_ticket_rate: 0.0
+  expected_srm_flag: 0
+  expected_missing_exposure_pattern: none
+  expected_peeking_risk: low
+  expected_recommendation: SHIP_TARGETED_SEGMENTS

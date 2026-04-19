@@ -1,0 +1,20 @@
+metric_name: exposure_rate
+metric_label: Exposure Rate
+description: Share of users who became exposed to the experiment surface
+metric_type: binary
+source_table: fact_user_outcomes
+aggregation_unit: user
+window_days: 7
+maturity_window_days: 7
+direction: higher_is_better
+metric_column: is_exposed
+covariate_column: historical_sessions_28d
+practical_significance_threshold: 0.01
+practical_significance_threshold_type: absolute
+null_fill_strategy: zero
+winsorization: null
+outlier_handling: none
+segment_eligible: false
+policy_weight: 0.2
+owner: growthlab
+
