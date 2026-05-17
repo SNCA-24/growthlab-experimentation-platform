@@ -155,7 +155,20 @@ def _prepare_page_context(bundle: dict[str, Any]) -> dict[str, Any]:
 
 
 def main() -> None:
-    st.set_page_config(page_title="GrowthLab", layout="wide")
+    st.set_page_config(page_title="GrowthLab", layout="wide", initial_sidebar_state="expanded")
+    st.markdown(
+        """
+        <style>
+        [data-testid="stSidebarNav"] { display: none; }
+        [data-testid="stHeader"] { display: none; }
+        [data-testid="stToolbar"] { display: none; }
+        [data-testid="collapsedControl"] { display: none; }
+        #MainMenu { visibility: hidden; }
+        footer { visibility: hidden; }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
     st.title("GrowthLab")
     st.caption("Local-first experimentation UI over the shared analysis, trust, and decision artifacts.")
 

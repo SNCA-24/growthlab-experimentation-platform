@@ -1,5 +1,5 @@
 {
-  "analysis_summary_path": "reports/validation/full_pack/scenario_aa_null/analysis_summary.json",
+  "analysis_summary_path": "reports/validation/scenario_aa_null/analysis_summary.json",
   "business_value_summary": {
     "analyzed_n": 20869,
     "direction": "higher_is_better",
@@ -732,5 +732,5 @@
     "srm_message": "srm_not_detected",
     "srm_state": "pass"
   },
-  "trust_summary_path": "reports/validation/full_pack/scenario_aa_null/trust_summary.json"
+  "trust_summary_path": "reports/validation/scenario_aa_null/validation_summary.json"
 }
